@@ -11,7 +11,9 @@ import java.sql.*;
  *
  * @author User
  * prova merge da netbeans!!!
+ * aidnfoadnfpa
  */
+
 public class ConnessioneDB {
     
     private Connection con;  //oggetto che permette la connessione ad un database in grado di fornire le info che descrivono le tabelle eil linguaggio SQL

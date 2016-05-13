@@ -25,6 +25,7 @@ public class ConnessioneDB {
     /**
      * Costruttore della classe.
      * Si occupa del caricamento del driver per la connessione al DataBase.
+     * provagit
      */
     public ConnessioneDB() {
 

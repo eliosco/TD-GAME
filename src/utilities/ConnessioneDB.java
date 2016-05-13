@@ -11,6 +11,7 @@ import java.sql.*;
  *
  * @author User
  * prova merge da netbeans!!!
+ * aidnfoadnfpa
  */
 public class ConnessioneDB {
     

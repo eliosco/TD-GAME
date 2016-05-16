@@ -52,7 +52,7 @@ public class Posizione {
     }
 
     /**
-     * Set 
+     * metodo set per la variabile x. in questo metodo settiamo anche xPlace che è la x in pixel
      * @param x
      */
     public void setX(int x) {
@@ -69,7 +69,7 @@ public class Posizione {
     }
 
     /**
-     *
+     * metodo set per la variabile y. in questo metodo settiamo anche yPlace che è la y in pixel
      * @param y
      */
     public void setY(int y) {

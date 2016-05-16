@@ -17,9 +17,9 @@ import java.util.Scanner;
 public class Salvato {
 
     /**
-     *
-     * @param caricaPercorso
-     * @param griglia
+     * Metodo caricaSalvato. Setta le piastrelle della griglia in base al File dato in input
+     * @param caricaPercorso Percorso che contiene i valori per settare il terreno della griglia
+     * @param griglia che rappresenterà la mappa.
      */
     public void caricaSalvato(File caricaPercorso, Griglia griglia) {
         

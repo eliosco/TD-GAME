@@ -14,7 +14,7 @@ import javax.swing.*;
 import static finestre.Finestra.*;
 
 /**
- *
+ * classe che implementa l'interfaccia ActionListener per poter consentire alla classe di interagire a delle azioni con degli eventi
  * @author User
  */
 public class AscoltatoreDiEventiInferiore implements ActionListener {
@@ -24,11 +24,11 @@ public class AscoltatoreDiEventiInferiore implements ActionListener {
 
     private JLabel l;
 
-    private boolean primoclick = false;
+    private boolean primoclick = false;//attributo che ci consente di capire se è l'elemento è stato cliccato per la prima volta
     private boolean primaondata=true;
 
     /**
-     *
+     *costruttore della classe che prende come parametri un JButton e una JLabel che verranno assegnate agli attributi definiti della classe
      * @param button
      * @param label
      */
@@ -37,11 +37,11 @@ public class AscoltatoreDiEventiInferiore implements ActionListener {
         b = button;
         stringBot = b.getText();
         l = label;
-        //System.out.println(stringBot);
+        
     }
     // deve farsi dare come parametro la Jlabel su 
     // cui dovrà andare ad agire 
-
+// metodo che gestisce gli eventi in base all'azione dell'utente, in base al testo del bottone di ingresso si eseguiranno diverse operazioni
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -49,20 +49,20 @@ public class AscoltatoreDiEventiInferiore implements ActionListener {
             case "READY": {
                 panel.setReady(true);
                 if (primoclick) {
-                    iPanel.getBarraProgresso().setValue(99);
+                    iPanel.getBarraProgresso().setValue(99);//porta il valore della barra di progresso del pannello inferiore al valore 99 su 100
                     
                    
                    
                 }
-                if(primaondata){
-                     iPanel.setOndManc(iPanel.getOndManc()-1);
+                if(primaondata){//caso in cui si tratta della prima ondata
+                     iPanel.setOndManc(iPanel.getOndManc()-1); // decrementa il contatore delle ondate mancanti 
                      primaondata=false;
-                      iPanel.getOndateMancanti().setText("Mancano "+ (iPanel.getOndManc())+ " ondate");
+                      iPanel.getOndateMancanti().setText("Mancano "+ (iPanel.getOndManc())+ " ondate");//setta il testo della stringa OndateMancanti del pannello inferiore col valore dato come parametro
                 }
                
                
                  
-                iPanel.getReady().setVisible(false);
+                iPanel.getReady().setVisible(false);//rende invisibile il tasto ready
                 primoclick = true;
                 panel.setProg(true);
 

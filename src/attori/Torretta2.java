@@ -277,7 +277,7 @@ public class Torretta2 extends Torretta {
         velocitàAttacco = 4500;
         giocatore.setSoldi(giocatore.getSoldi() - 20);
         iPanel.update(giocatore);
-        sPanel.aggiornamentoStatTor(livelloTorretta, costoAcquisto, velocitàAttacco, attacco);
+        sPanel.caratteristicheTor(livelloTorretta, costoAcquisto, velocitàAttacco, attacco);
 
     }
 

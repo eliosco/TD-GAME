@@ -17,17 +17,28 @@ import static finestre.Finestra.giocatore;
 import static finestre.Finestra.sPanel;
 
 /**
- *
+ * classe che estende la classe JPanel di Java e implementa l'interfaccia Runnable (L'interfaccia Runnable deve essere implementato da ogni classe le cui istanze sono destinate ad essere eseguite da un thread. La classe deve definire un metodo run .)
  * @author User
  */
 public class PannelloSuperiore extends JPanel implements Runnable {
 
-    private JLabel costoTorretta, livello, danno, velocità;
-    private JButton upGrade, vendi;
+    private JLabel costoTorretta, livello, danno, velocità; // label del pannello
+    private JButton upGrade, vendi;//bottoni del pannello
+    //ascoltatori del pannello
+    private AscoltatoreDiEventiSuperiore ricevitore;
+    private AscoltatoreDiEventiTorretta ricevitoreU, ricevitoreV;
+    private Torretta torrettaSelezionata;
+    private final Thread threadTop; // thread del pannello
+    private Negozio negozio;
+    //creazione degli oggetti risorse di tipo vettore di Immagini
+    private Image[] setTipo_ris = new Image[100];
+    private Image[] setTipo_tor = new Image[100];
 
+
+//di seguito tutti i metodi get e set degli attributi della classe
     /**
      *
-     * @return
+     * @return upGrade di tipo JButton
      */
     public JButton getUpGrade() {
         return upGrade;
@@ -43,7 +54,7 @@ public class PannelloSuperiore extends JPanel implements Runnable {
 
     /**
      *
-     * @return
+     * @return vendi di tipo JButton
      */
     public JButton getVendi() {
         return vendi;
@@ -56,9 +67,7 @@ public class PannelloSuperiore extends JPanel implements Runnable {
     public void setVendi(JButton vendi) {
         this.vendi = vendi;
     }
-    private AscoltatoreDiEventiSuperiore ricevitore;
-    private AscoltatoreDiEventiTorretta ricevitoreU, ricevitoreV;
-    private Torretta torrettaSelezionata;
+  
 
     /**
      *
@@ -76,11 +85,7 @@ public class PannelloSuperiore extends JPanel implements Runnable {
         this.torrettaSelezionata = torrettaSelezionata;
 
     }
-    private final Thread threadTop;
-    private Negozio negozio;
-
-    private Image[] setTipo_ris = new Image[100];
-    private Image[] setTipo_tor = new Image[100];
+   
 
     /**
      *
@@ -262,7 +267,7 @@ public class PannelloSuperiore extends JPanel implements Runnable {
     }
 
     /**
-     *
+     * costruttore della classe che eredita attributi e metodi della super classe, crea il thread da eseguire e costruisce tutti gli oggetti utili al pannello superiore
      * @param giocatore
      */
     public PannelloSuperiore(Giocatore giocatore) {
@@ -280,13 +285,13 @@ public class PannelloSuperiore extends JPanel implements Runnable {
         ricevitoreU = new AscoltatoreDiEventiTorretta(upGrade);
         ricevitoreV = new AscoltatoreDiEventiTorretta(vendi);
 
-        setPreferredSize(new Dimension(800, 40));
+        setPreferredSize(new Dimension(800, 40));//dimensiona il pannello superiore
 
-        threadTop.start();
+        threadTop.start();//fa partire il thread
     }
 
     /**
-     *
+     *metodo che crea l'oggetto negozio e le diverse immagini delle risorse
      */
     public void definisci() {
         negozio = new Negozio();
@@ -296,23 +301,25 @@ public class PannelloSuperiore extends JPanel implements Runnable {
         setTipo_ris[2] = new ImageIcon("risorse/cellaDown.png").getImage();
         setTipo_tor[0] = new ImageIcon("risorse/laser.png").getImage();
         setTipo_tor[1] = new ImageIcon("risorse/laser1.png").getImage();
-
+     //aggiunta degli ascoltatori del mouse al pannello superiore
         addMouseListener(ricevitore);
         addMouseMotionListener(ricevitore);
-
+ //aggiunta delle componenti grafiche al pannello superiore
         add(livello);
         add(costoTorretta);
         add(velocità);
         add(danno);
         add(upGrade);
         add(vendi);
-
+  //aggiunta degli ascoltatori 
         upGrade.addActionListener(ricevitoreU);
         vendi.addActionListener(ricevitoreV);
+        //invisibilità dei bottoni seguenti
         upGrade.setVisible(false);
         vendi.setVisible(false);
     }
 
+//metodo che si occupa della definizione del pannello  se è stato esuito il primo accesso e del disegno del negozio passando i parametri necessari
     @Override
     public void paintComponent(Graphics g) {
         if (primoControl) {
@@ -322,7 +329,7 @@ public class PannelloSuperiore extends JPanel implements Runnable {
         g.clearRect(0, 0, getWidth(), getHeight());
         negozio.disegna(g, getTopo(), getSetTipo_ris(), getSetTipo_tor());
     }
-
+//metodo obbligatorio dell'interfaccia Runnable che si occupa dell'esecuzione del thread
     @Override
     public void run() {
 
@@ -340,7 +347,7 @@ public class PannelloSuperiore extends JPanel implements Runnable {
     }
 
     /**
-     *
+     *metodo che presi come parametri di ingresso le caratteristiche di una torretta aggiorna le carratteristiche obsolete di quest'ultima gestendo la visualizzazione dei tasti della torretta stessa
      * @param liv
      * @param costo
      * @param vel
@@ -354,12 +361,13 @@ public class PannelloSuperiore extends JPanel implements Runnable {
         costoTorretta.setText("costo torretta: " + costo);
 
         vendi.setVisible(true);
-if(giocatore.getSoldi()>=sPanel.getTorrettaSelezionata().getCostoUpgrade())
+if(giocatore.getSoldi()>=sPanel.getTorrettaSelezionata().getCostoUpgrade() && liv==0)
         upGrade.setVisible(true);
+        else upGrade.setVisible(false);
     }
 
     /**
-     *
+     *metodo che non avendo parametri di ingresso viene attivato quando non viene cliccata alcuna torrete cosicchè non vengono visualizzate le caratteristiche
      */
     public void caratteristicheTor() {
 
@@ -372,19 +380,5 @@ if(giocatore.getSoldi()>=sPanel.getTorrettaSelezionata().getCostoUpgrade())
         vendi.setVisible(false);
     }
 
-    /**
-     *
-     * @param liv
-     * @param costo
-     * @param vel
-     * @param dan
-     */
-    public void aggiornamentoStatTor(int liv, int costo, int vel, int dan) {
-        velocità.setText("velocità attacco torretta :" + vel);
-        danno.setText("danno torretta: " + dan);
-        livello.setText("livello torretta: " + liv);
-        costoTorretta.setText("costo torretta: " + costo);
-        upGrade.setVisible(false);
-        vendi.setVisible(true);
-    }
+    
 }

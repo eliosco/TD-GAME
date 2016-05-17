@@ -9,7 +9,7 @@ import ambiente.Mappa;
 import java.awt.Image;
 
 /**
- *
+ *Classe utilizzata per costruire l'oggetto ondata. Viene utilizzata per una gestione ottimizzata dei mob.
  * @author User
  */
 public final class Ondata {
@@ -23,12 +23,12 @@ public final class Ondata {
 
     private final int dimPiastrella;
 
-//    private final int idondata;
-    private final Mob[] mobs;
-    private final Mappa mappa;
+
+    private final Mob[] mobs;// vettore di mob che caratterizzano l'ondata.
+    private final Mappa mappa;// oggetto mappa che contiene il percorso che il mob può percorrere.
 
     /**
-     *
+     *Metodo che restituisce l'oggetto "mappa".
      * @return
      */
     public Mappa getMappa() {
@@ -36,7 +36,7 @@ public final class Ondata {
     }
     
     /**
-     *
+     *Metodo che restituisce il vettore di mob.
      * @return
      */
     public Mob[] getMobs() {
@@ -44,7 +44,7 @@ public final class Ondata {
     }
     
     /**
-     *
+     *Metodo che restituisce il valore della variabile "vitaMob".
      * @return
      */
     public int getVitaMob() {
@@ -52,7 +52,7 @@ public final class Ondata {
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "vitaMob".
      * @param vitaMob
      */
     public void setVitaMob(int vitaMob) {
@@ -60,7 +60,7 @@ public final class Ondata {
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "velMob".
      * @return
      */
     public int getVelMob() {
@@ -68,17 +68,17 @@ public final class Ondata {
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "velMob".
      * @param velMob
      */
     public void setVelMob(int velMob) {
         this.velMob = velMob;
     }
 
-    //costruttore di ondata
+   
 
     /**
-     *
+     *Metodo costruttore di ondata.
      * @param mappa
      * @param n
      * @param vitaMob
@@ -90,22 +90,21 @@ public final class Ondata {
     public Ondata(Mappa mappa, int n, int vitaMob, int velMob, int guadagnoMob,int dimPiastrella, Image immaginemob) {
         this.mappa = mappa;
         this.immaginemob= immaginemob;
-        this.n = n;//numero mob dell'ondata e quindi dimensione del vettore Mob
-        mobs = new Mob[n];//istanziazione di un vetore di Mob di dimensione n
-//        idondata = 0;
+        this.n = n;//numero mob dell'ondata e quindi dimensione del vettore Mob.
+        mobs = new Mob[n];//istanziazione di un vetore di Mob di dimensione n.
+
         this.vitaMob = vitaMob;
         this.velMob = velMob;
 
         this.dimPiastrella = dimPiastrella;
         this.guadagnoMob=guadagnoMob;
-        riempiOndata();//chiamata al metodo riempiOndata
+        riempiOndata();//chiamata al metodo riempiOndata.
 
     }
 
-    //il metodo riempiOndata scorre il vettore Mob e istanzia tutti mob fino a riempire il vettore
-
+ 
     /**
-     *
+     *Metodo che scorre il vettore Mob e istanzia n mob fino a riempire il vettore.
      */
     public void riempiOndata() {
         for (int i = 0; i < n; i++) {
@@ -117,7 +116,7 @@ public final class Ondata {
     }
 
     /**
-     *
+     *Metodo che restituisce il valore di "n".
      * @return
      */
     public int getN() {

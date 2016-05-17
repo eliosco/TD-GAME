@@ -262,7 +262,7 @@ public class Torretta1 extends Torretta {
         velocitàAttacco = 5500;
         giocatore.setSoldi(giocatore.getSoldi() - costoUpgrade);// toglie il valore di "costoUpgrade" dal valore di "soldi" di giocatore.
         iPanel.update(giocatore);// aggiorna le variabili gi giocatore.
-        sPanel.aggiornamentoStatTor(livelloTorretta, costoAcquisto, velocitàAttacco, attacco);// aggiorna le statische della torretta nel pannello superiore.
+        sPanel.caratteristicheTor(livelloTorretta, costoAcquisto, velocitàAttacco, attacco);// aggiorna le statische della torretta nel pannello superiore.
 
     }
 

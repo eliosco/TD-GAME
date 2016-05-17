@@ -15,43 +15,46 @@ import static finestre.Finestra.*;
  */
 public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle ereditando metodi e attributi
 
-    private Posizione posizione, lastPos;
-    private int id, salute, guadagno, velocità, velocitaframe;
-    private boolean primaVolta, uP, ingioco, nelrange, morto;
-    private Image immagine;
-    private boolean[][] pos;
-    private boolean rallentato;
-    private long tempoRallentato;
-    private int debuffVelocità;
+    private Posizione posizione, lastPos;// oggetti utilizzati per salvare le coordinate del mob sulla mappa
+    private int id, salute, guadagno, velocità, velocitaframe;// variabili caratteristiche del mob apparte "velocitaframe" che viene utilizzata come delay nel movimento del mob
+    private boolean primaVolta, uP, ingioco, nelrange, morto;// booleani necessari per i vari controlli nei metodi di mob
+    private Image immagine;// oggetto che contiene l'immagine del mob
+    private boolean[][] pos;// una matrice di booleani necessaria per il controllo della posizione durante il movimento del mob
+    private boolean rallentato;// booleano che viene settato da una torretta caratteristica che appunto rallenta il mob
+    private long tempoRallentato;// stabilisce il tempo di durata del rallentamento
+    private int debuffVelocità;// stabilisce la "quantità" di rallentamento 
 
     /**
-     *
-     * @return
+     *Metodo che restituisce il valore di rallentato.
+     * 
+     * @return true or false se è rallentato o meno
      */
     public boolean isRallentato() {
         return rallentato;
     }
 
     /**
-     *
+     *Metodo per settare il boleano "rallentato".
      * @param rallentato
      */
     public void setRallentato(boolean rallentato) {
         this.rallentato = rallentato;
     }
 
-    private final int dimPiastrella;
+    private final int dimPiastrella;// è la dimensione fissa del mob, ovvero la dimensione costante di ogni singola piastrella della mappa
 
     /**
-     *
-     * @return
+     *Metodo che restituisce il valore di "nelrange".
+     * @return true or false se è o non è nel range 
      */
     public boolean isNelrange() {
         return nelrange;
     }
 
     /**
-     *
+     *Metodo utilizzato per settare il valore di "nelrange".
+     * Viene utilizzato per determinare se il mob è all'interno di qualche range di attacco di qualunque torretta.
+     * 
      * @param nelrange
      */
     public void setNelrange(boolean nelrange) {
@@ -59,7 +62,8 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo utilizzato per settare il valore di "ingioco".
+     *Viene utilizzato per determinare se il mob è entrato in gioco.
      * @param ingioco
      */
     public void setIngioco(boolean ingioco) {
@@ -67,19 +71,20 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che determina la "morte" del mob.
+     *Viene utilizzato nel momento in cui il mob non ha più punti vita o ha raggiunto la casella finale.
      * @param morto
      */
     public void setMorto(boolean morto) {
         this.morto = morto;
-        panel.setMobUccisi(panel.getMobUccisi() + 1);
+        panel.setMobUccisi(panel.getMobUccisi() + 1);// contatore utilizzato per determinare il numero di mob uccisi e per stabilire l'eventuale vittoria o sconfitta del giocatore
 
     }
 
-    //costruttore della classe Mob
+
 
     /**
-     *
+     *Metodo costruttore della classe mob.
      * @param posizione
      * @param velocità
      * @param id
@@ -121,7 +126,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce il valore di "debuffVelocità".
      * @return
      */
     public int getDebuffVelocità() {
@@ -129,7 +134,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che effettua il set di "debuffVelocità".
      * @param debuffVelocità
      */
     public void setDebuffVelocità(int debuffVelocità) {
@@ -137,7 +142,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce il valore di "tempoRallentato".
      * @return
      */
     public long getTempoRallentato() {
@@ -145,17 +150,17 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che effettua il set di "tempoRallentato".
      * @param tempoRallentato
      */
     public void setTempoRallentato(long tempoRallentato) {
         this.tempoRallentato = tempoRallentato;
     }
 
-    // il metodo spawn modifica dimensione e posizie del mob dichiarando che il mob è in gioco grazie alla variabile ingioco
+ 
 
     /**
-     *
+     *Metodo che modifica dimensione e posizione del mob dichiarando che il mob è in gioco grazie alla variabile ingioco.
      */
 
     public void spawn() {
@@ -168,10 +173,10 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
 
     }
 
-    // il metodo disegna si occupa di disegnare il mob grazie al metodo drawImage 
+   
 
     /**
-     *
+     *Metodo che si occupa di disegnare il mob grazie al metodo drawImage. 
      * @param g
      */
  
@@ -185,7 +190,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce l'oggetto "posizione".
      * @return
      */
     public Posizione getPosizione() {
@@ -193,7 +198,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "ingioco".
      * @return
      */
     public boolean isIngioco() {
@@ -201,7 +206,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "morto".
      * @return
      */
     public boolean isMorto() {
@@ -209,7 +214,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo utilizzato per il set dell'oggetto "posizione".
      * @param posizione
      */
     public void setPosizione(Posizione posizione) {
@@ -217,7 +222,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "id".
      * @return
      */
     public int getId() {
@@ -225,7 +230,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "id".
      * @param id
      */
     public void setId(int id) {
@@ -233,7 +238,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "velocità".
      * @return
      */
     public int getVelocità() {
@@ -241,7 +246,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "velocità".
      * @param velocità
      */
     public void setVelocità(int velocità) {
@@ -249,7 +254,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "salute".
      * @return
      */
     public int getSalute() {
@@ -257,7 +262,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "salute".
      * @param salute
      */
     public void setSalute(int salute) {
@@ -265,7 +270,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "guadagno".
      * @return
      */
     public int getGuadagno() {
@@ -273,7 +278,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "guadagno".
      * @param guadagno
      */
     public void setGuadagno(int guadagno) {
@@ -281,7 +286,8 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo che effettua delle modifiche ai valori di determinate variabili di giocatore e incrementa il contatore dei mob "morti".
+     * Viene richiamata nel momento in cul mob raggiunge l'ultima posizione che determina la perdita di "punti vita" del giocatore.
      */
     public void togliVita() {
 
@@ -291,27 +297,28 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
 
     }
 
-    // il metodo avanzamento gestisce gli spostamenti del mob all'interno della mappa interessata verificando ogni volta la posizione corrente e successiva
+   
 
     /**
-     *
+     *Metodo utilizzato per effettuare il movimento del mob. 
+     * Attraverso una serie di controlli l'algoritmo stabilisce la posizione successiva nella quale il mob può muoversi.
      * @param mappa
      */
     
     public void avanzamento(int[][] mappa) {
         if (velocitaframe >= velocità) {
-            if (mappa[y / 40 + 1][x / 40] == 3 || mappa[y / 40][x / 40 + 1] == 3) {
+            if (mappa[y / 40 + 1][x / 40] == 3 || mappa[y / 40][x / 40 + 1] == 3) {// controllo della posizione finale
                 togliVita();
                 this.ingioco = false;
                 this.morto = true;
-            } else if (primaVolta) {
+            } else if (primaVolta) {// controlla se è la prima volta che il mob cerca di muoversi
 
                 tiMuovi(mappa);
                 primaVolta = false;
 
-            } else if (x % 40 == 0 && y % 40 == 0) {
-                if (uP == true) {
-                    pos[(lastPos.getY() / 40) + 1][(lastPos.getX() / 40)] = true;
+            } else if (x % 40 == 0 && y % 40 == 0) {// controlla se il resto della divisione tra le variabili e la costanti della dimensione della casella è pari a 0. Se è così effettua ulteriori controlli per determinare la direzione corretta.
+                if (uP == true) {// significa che il mob può andare verso l'alto
+                    pos[(lastPos.getY() / 40) + 1][(lastPos.getX() / 40)] = true;//setta la posizione precedente a true ovvero significa che il mob è gia passato da quella posizione e non può tornarci.
 
                     tiMuovi(mappa);
                 } else {
@@ -319,7 +326,7 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
                     tiMuovi(mappa);
                 }
                 
-            } else if (x % 40 != 0 || y % 40 != 0) {
+            } else if (x % 40 != 0 || y % 40 != 0) {// almeno una delle due divisioni ha resto diverso da 0.
                 tiMuovi(mappa);
             }
             velocitaframe = 0;
@@ -330,11 +337,12 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     * Metodo che effettua controlli e modifica le variabili della posizione del mob ovvero x e y.
+     * Attraverso una serie di controlli sulla mappa e sulla posizione del mob l'algoritmo decide quale variabile viene modificata affinchè il mob si possa muovere nella posizione corretta.
      * @param mappa
      */
     public void tiMuovi(int[][] mappa) {
-        int xM, yM;
+        int xM, yM;// sono respettivamente la x e la y che verrano utilizzate all'interno di mappa. ATTENZIONE : la xM di mappa corrisponde alla y di mob e la yM di mappa corrisponde alla x di mob.
         xM = (int) y / 40;
         yM = (int) x / 40;
 
@@ -365,7 +373,8 @@ public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle 
     }
 
     /**
-     *
+     *Metodo utilizzato al momento della "morte" del mob.
+     *Vengono modificati dei valori delle variabili di giocatore e in più vengono settati alcuni valori di mob per definire la sua "morte".
      */
     public void morte() {
         if (getSalute() <= 0) {

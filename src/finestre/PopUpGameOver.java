@@ -24,7 +24,7 @@ public class PopUpGameOver extends JOptionPane {
     private AscoltatoreDiEventiGameOver ricevitoreSi, ricevitoreNo, ricevitoreF;
 
     /**
-     *
+     *costruttore della classe che crea i bottoni e gli ascoltatori di eventi per poi assegnarli ai relativi bottoni
      */
     public PopUpGameOver() {
         ricomincia = new JButton("ricomincia");
@@ -36,15 +36,15 @@ public class PopUpGameOver extends JOptionPane {
         ricomincia.addActionListener(ricevitoreSi);
         chiudi.addActionListener(ricevitoreNo);
         fine.addActionListener(ricevitoreF);
-        popUp = new JOptionPane();
+        popUp = new JOptionPane(); // crea un oggetto di tipo JOptionePane cioè un oggetto pop-up cioè una finestra di dialogo standard che richiede agli utenti un valore o li informa di qualcosa . 
 
     }
 
     /**
-     *
+     * metodo che gestisce il pop up secondo in caso di sconfitta
      */
     public void HaiPerso() {
-        Object[] options = {ricomincia, chiudi};
+        Object[] options = {ricomincia, chiudi}; // vettore di oggetti , un oggeto object appartiene alla classe Object che è la radice della gerarchia delle classi
 
         popUp.showOptionDialog(finestra, "Hai perso... che nabbo dimmerda", "I MOB SONO OP",
                 JOptionPane.DEFAULT_OPTION,
@@ -53,7 +53,7 @@ public class PopUpGameOver extends JOptionPane {
     }
 
     /**
-     *
+     *metodo che gestisce il pop up in caso di vittoria
      */
     public void HaiVinto() {
 

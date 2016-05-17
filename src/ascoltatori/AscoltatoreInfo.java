@@ -16,18 +16,20 @@ import javax.swing.JOptionPane;
 import static utilities.TDGAME.finestraIn;
 
 /**
- *
+ *questa classe implementa le interfacce per gestire gli eventi del mouse
  * @author User
  */
 public class AscoltatoreInfo implements MouseListener,ActionListener{
 private JOptionPane popup;
 
     /**
-     *
+     * con il costruttore viene creato un oggetto JOptionPane che sarebbe una finestra di dialogo o popup
      */
     public AscoltatoreInfo(){
 popup=new JOptionPane();
 }
+
+ // al click del mouse sarà possibile vedere una finestra popup di tipo testuale
     @Override
     public void mouseClicked(MouseEvent e) {
         try {

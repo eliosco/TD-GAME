@@ -4,7 +4,7 @@ import java.awt.*;
 import static finestre.Finestra.*;
 
 /**
- *
+ * questa classe definisce oggetti che raffigurano un negozio, quindi con delle dimensioni e degli elementi grafici che risponderanno in base alle azioni dell'utente
  * @author User
  */
 public final class Negozio {
@@ -17,14 +17,14 @@ public final class Negozio {
 
     /**
      *
-     * @return
+     * @return bottone di tipo Rectangle[]
      */
     public Rectangle[] getBottone() {
         return bottone;
     }
 
     /**
-     *
+     *costruttore della classe che istanzia le dimensioni utili per l'oggetto,crea un vettore di rettangoli che saranno poi dei bottoni grafici e chiama il metodo definisci(); 
      */
     public Negozio() {
         larghezzaNegozio = 8;
@@ -36,7 +36,7 @@ public final class Negozio {
     }
 
     /**
-     *
+     *metodo che definisce ogni singolo rettangolo del vettore creato
      */
     public void definisci() {
 
@@ -47,7 +47,7 @@ public final class Negozio {
     }
 
     /**
-     *
+     * metodo che disegna ogni singolo rettangolo del vettore rispettando la casistica esistente che si base sulle statistiche del giocatore, in particolare quando il puntatore del mouse preso come parametro è contenuto all'interno di un rettangolo
      * @param g
      * @param topo
      * @param ris

@@ -235,7 +235,7 @@ public class Torretta1 extends Torretta {
     @Override
     public void attacca(Mob bersaglio) {
 
-        proiettili.add(new Proiettile(bersaglio, this.x, this.y, attacco,this));
+        proiettili.add(new Proiettile(bersaglio, this.x, this.y, attacco,this)); // aggiunge un proiettile all'arraylist.
 
     }
     
@@ -245,9 +245,9 @@ public class Torretta1 extends Torretta {
      */
     @Override
     public void colpisci(Mob bersaglio){
-        bersaglio.setSalute(bersaglio.getSalute() - attacco);
+        bersaglio.setSalute(bersaglio.getSalute() - attacco);// scala dalla salute del mob una quantità pari all'attacco della torretta.
 
-                bersaglio.morte();
+                bersaglio.morte();// effettua la verifica se il bersaglio è morto.
     }
 
     /**
@@ -260,9 +260,9 @@ public class Torretta1 extends Torretta {
         livelloTorretta = 1;
         attacco += 5;
         velocitàAttacco = 5500;
-        giocatore.setSoldi(giocatore.getSoldi() - 10);
-        iPanel.update(giocatore);
-        sPanel.aggiornamentoStatTor(livelloTorretta, costoAcquisto, velocitàAttacco, attacco);
+        giocatore.setSoldi(giocatore.getSoldi() - costoUpgrade);// toglie il valore di "costoUpgrade" dal valore di "soldi" di giocatore.
+        iPanel.update(giocatore);// aggiorna le variabili gi giocatore.
+        sPanel.aggiornamentoStatTor(livelloTorretta, costoAcquisto, velocitàAttacco, attacco);// aggiorna le statische della torretta nel pannello superiore.
 
     }
 
@@ -274,7 +274,7 @@ public class Torretta1 extends Torretta {
     public void disegna(Graphics g) {
         g.drawImage(Pannello.Tipo_torr1, x, y, 40, 40, null);
         g.setColor(Color.YELLOW);
-        g.drawOval(x - 40, y - 40, 120, 120);
+        g.drawOval(x - 40, y - 40, 120, 120);// disegno del range della torretta.
     }
 
     /**

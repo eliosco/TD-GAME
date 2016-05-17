@@ -64,7 +64,7 @@ public class AscoltatoreDiEventiInferiore implements ActionListener {
                  
                 iPanel.getReady().setVisible(false);//rende invisibile il tasto ready
                 primoclick = true;
-                panel.setProg(true);
+                panel.setProg(true);//setta a true la variabile "prog" di pannello, quindi rende possibile il progresso della barra
 
                 break;
             }

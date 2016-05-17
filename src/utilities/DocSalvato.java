@@ -10,7 +10,6 @@ import java.io.*;
 /**
  *
  * @author User
- * prova coaksdnoansd
  */
 public class DocSalvato {
     String linea,testo;
@@ -18,19 +17,18 @@ public class DocSalvato {
    private  BufferedReader re;
    
     /**
-     *
+     * Metodo costrutture. In questo metodo si crea una stringa vuota.
      * @throws IOException
      */
     public DocSalvato() throws IOException{
        
- 
- testo=new String("");
+        testo=new String("");
    }
     
     /**
      *
-     * @param f
-     * @return
+     * @param f File da caricare. contiene il documento che manderemo in output.
+     * @return Ritorna la stringa che successivamente manderemo in output sulla finestra delle info.
      * @throws FileNotFoundException
      * @throws IOException
      */

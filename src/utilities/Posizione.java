@@ -6,7 +6,7 @@
 package utilities;
 
 /**
- *
+ * Questa classe ci permette di gestire la posizione sia in termini di pixel che all'interno dela matrice mappa.
  * @author User
  */
 public class Posizione {
@@ -14,7 +14,7 @@ public class Posizione {
     private int x, y, xPlace, yPlace;
 
     /**
-     *
+     * Metodo costrutture. xPlace e yPlace indicano la posizione in pixel.
      * @param x
      * @param y
      */
@@ -28,7 +28,7 @@ public class Posizione {
     }
 
     /**
-     *
+     * Set della variabile xPlace.
      * @param xPlace
      */
     public void setXPlace(int xPlace) {
@@ -36,7 +36,7 @@ public class Posizione {
     }
 
     /**
-     *
+     * Set della variabile yPlace.
      * @param yPlace
      */
     public void setYPlace(int yPlace) {
@@ -44,7 +44,7 @@ public class Posizione {
     }
 
     /**
-     *
+     * 
      * @return
      */
     public int getX() {
@@ -52,7 +52,7 @@ public class Posizione {
     }
 
     /**
-     *
+     * metodo set per la variabile x. in questo metodo settiamo anche xPlace che è la x in pixel
      * @param x
      */
     public void setX(int x) {
@@ -61,7 +61,7 @@ public class Posizione {
     }
 
     /**
-     *
+     * 
      * @return
      */
     public int getY() {
@@ -69,7 +69,7 @@ public class Posizione {
     }
 
     /**
-     *
+     * metodo set per la variabile y. in questo metodo settiamo anche yPlace che è la y in pixel
      * @param y
      */
     public void setY(int y) {

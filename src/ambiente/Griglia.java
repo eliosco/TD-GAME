@@ -20,7 +20,7 @@ public final class Griglia {
     private Piastrella[][] piastrella;
    
     /**
-     *
+     *costruttore della classe Griglia che assegna le dimensioni standard utilizzate e richiama il metodo definisci() della classe
      */
     public Griglia(){
         this.dimPiastrelle = 40;
@@ -31,7 +31,7 @@ public final class Griglia {
     
     /**
      *
-     * @return
+     * @return la dimensione della piastrella
      */
     public int getDimPiastrelle() {
         return dimPiastrelle;
@@ -39,7 +39,7 @@ public final class Griglia {
 
     /**
      *
-     * @param dimPiastrelle
+     * @param dimPiastrelle di tipo int
      */
     public void setDimPiastrelle(int dimPiastrelle) {
         this.dimPiastrelle = dimPiastrelle;
@@ -47,7 +47,7 @@ public final class Griglia {
 
     /**
      *
-     * @return
+     * @return l'altezza del mondo(griglia)
      */
     public int getWorldAltezza() {
         return worldAltezza;
@@ -63,7 +63,7 @@ public final class Griglia {
 
     /**
      *
-     * @return
+     * @return la larghezza del mondo
      */
     public int getWorldLarghezza() {
         return worldLarghezza;
@@ -79,7 +79,7 @@ public final class Griglia {
 
     /**
      *
-     * @return
+     * @return la piastrella di tipo Piastrella[][] 
      */
     public Piastrella[][] getPiastrella() {
         return piastrella;
@@ -94,7 +94,7 @@ public final class Griglia {
     }
     
     /**
-     *
+     * questo metodo definisce la griglia che andremo a costruire, esso costruisce una matrice di piastrelle con dimensioni uguali a quelle del mondo che ci interessa costruire e per ogni posizione della matrice di tipo piastrella crea una piastrella passandogli le relative dimensioni prefissate
      */
     public void definisci(){
         piastrella=new Piastrella[worldAltezza][worldLarghezza];
@@ -106,7 +106,7 @@ public final class Griglia {
     }
        
     /**
-     *
+     * questo metodo disegna ogni singola piastrella scorrendo il vettore elemento per elemento grazie alla variabile g di tipo graphics  che sostanzialmente racchiude una componente grafiche con le relative caratteristiche
      * @param g
      */
     public void disegna(Graphics g){
@@ -118,7 +118,7 @@ public final class Griglia {
     }
         
     /**
-     *
+     *questo metodo prende in ingresso delle coordinate x e y e, scorrendo la lista delle torrette, controlla se questi parametri di ingresso sono nella posizione esatta per poter installare una torretta confrontandoli con le dimensioni della torretta stessa 
      * @param x
      * @param y
      * @return
@@ -137,6 +137,6 @@ public final class Griglia {
                 
             
         }
-        return piastrella[y/40-1][x/40].getTerrenoId()==terrenoErba;
+        return piastrella[y/40-1][x/40].getTerrenoId()==terrenoErba; //ritorna true se è soddisfatta la condizione
     }
 }

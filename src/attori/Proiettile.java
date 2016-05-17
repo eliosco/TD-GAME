@@ -9,19 +9,19 @@ import static finestre.Finestra.panel;
 import java.awt.*;
 
 /**
- *
+ *Classe Proiettile utilizzata per la costruzione di un entità che determina il concetto di attacco delle torrette.
  * @author User
  */
 public class Proiettile extends Rectangle {
 
-    private boolean colpito, sparato;
-    private double velocita;
+    private boolean colpito, sparato;// Booleani necessari per alcuni controlli determinano se il proiettile ha colpito il mob e se il proiettile è stato sparato.
+    private double velocita;// determina la velocita di spostamento del proiettile.
     private int velocitaproiettile, velocitaframe, attacco;
-    private Mob bersaglio;
-    private Torretta tor;
+    private Mob bersaglio;// determina il mob verso cui il proiettile si deve muovere.
+    private Torretta tor;// indica la torretta dalla quale il proiettile viene generato.
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "colpito".
      * @return
      */
     public boolean isColpito() {
@@ -29,7 +29,7 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "sparato".
      * @return
      */
     public boolean isSparato() {
@@ -37,7 +37,7 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "sparato".
      * @param sparato
      */
     public void setSparato(boolean sparato) {
@@ -45,7 +45,7 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo che restituisce il valore della variabile "velocita".
      * @return
      */
     public double getVelocita() {
@@ -53,7 +53,7 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "velocita".
      * @param velocita
      */
     public void setVelocita(double velocita) {
@@ -61,7 +61,7 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "x".
      * @param x
      */
     public void setX(int x) {
@@ -69,7 +69,7 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo utilizzato per il set della variabile "y".
      * @param y
      */
     public void setY(int y) {
@@ -77,7 +77,7 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo costruttore della classe Proiettile
      * @param bersaglio
      * @param x
      * @param y
@@ -85,18 +85,18 @@ public class Proiettile extends Rectangle {
      * @param t
      */
     public Proiettile(Mob bersaglio, int x, int y, int attacco,Torretta t) {
-        this.x = x + 20;
+        this.x = x + 20;// il +20 serve per centrare il punto di spawn del proiettile al centro della cella che contiene la torretta.
         this.y = y + 20;
         tor=t;
         this.attacco = attacco;
         this.bersaglio = bersaglio;
         velocitaproiettile = 2;
-        spawn();
+        spawn();// chiamata al metodo spawn().
 
     }
 
     /**
-     *
+     *Metodo che modifica dimensione e posizione del proiettile dichiarando che il proiettile è stato sparato grazie alla variabile "sparato" e setta la variabile "colpito" a false.
      */
     public void spawn() {
 
@@ -107,22 +107,21 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo utilizzato per il movimento del proiettile. L'algoritmo attraverso una serie di controlli tra 4 variabili determina il nuovo valore delle coordinate del proiettile.
      */
     public void calcolaDirezione() {
 
-        double xPi = x;
-        double yPi = y;
-        double yPf = bersaglio.getY() + 20;
-        double xPf = bersaglio.getX() + 20;
-        if (velocitaframe >= (velocitaproiettile*panel.getTorrette().size())) {
+        double xPi = x;// coordinata x del proiettile.
+        double yPi = y;// coordinata y del proiettile.
+        double yPf = bersaglio.getY() + 20;// coordinata y del bersaglio (il +20 è necessario per farlo arrivare al centro della cella che contiene il mob).
+        double xPf = bersaglio.getX() + 20;// coordinata x del bersaglio.
+        if (velocitaframe >= (velocitaproiettile*panel.getTorrette().size())) {// il delay del calcolo della direzione varia a variare del numero delle torrette piazzate sulla mappa.
 
-            if (xPi == xPf && yPi == yPf && this.colpito == false) {
+            if (xPi == xPf && yPi == yPf && this.colpito == false) {// controllo che verifica se ha raggionto il bersaglio.
 
                 this.colpito = true;
-                tor.colpisci(bersaglio);
-//              colpisci(tor);
-                ///
+                tor.colpisci(bersaglio);// chiamata al metodo colpisci  di torretta.
+
             } else if (xPi > xPf && yPi < yPf) {
                 x -= 1;
                 y += 1;
@@ -156,7 +155,7 @@ public class Proiettile extends Rectangle {
     }
 
     /**
-     *
+     *Metodo utilizzato per disegnare l'immagine del proiettile. Viene diversificata in base alle caratteristiche delle torrette.
      * @param g
      */
     public void disegna(Graphics g) {
@@ -186,7 +185,7 @@ public class Proiettile extends Rectangle {
     }
     
     /**
-     *
+     *Metodo utilizzato 
      */
     public void morte() {
         if (bersaglio.getSalute() == 0) {

@@ -6,15 +6,15 @@
 package attori;
 
 /**
- *
+ *Classe che definisce le caratteristiche del giocatore "player".
  * @author User
  */
 public class Giocatore {
 
-    private int vita, soldi;
+    private int vita, soldi;// variabili intere che definiscono rispettivamente i punti vita del giocatore e i soldi a disposizione per l'aquisto e upgrade delle torrette.
 
     /**
-     *
+     *Metodo costruttore della classe.
      * @param vita
      * @param soldi
      */
@@ -26,7 +26,7 @@ public class Giocatore {
     }
 
     /**
-     *
+     *Metodo che restituisce il valore di "vita".
      * @return
      */
     public int getVita() {
@@ -34,7 +34,7 @@ public class Giocatore {
     }
 
     /**
-     *
+     *Metodo utilizzato per il set del valore "vita".
      * @param vita
      */
     public void setVita(int vita) {
@@ -42,7 +42,7 @@ public class Giocatore {
     }
 
     /**
-     *
+     *Metoto che restituisce il valore di "soldi".
      * @return
      */
     public int getSoldi() {
@@ -50,7 +50,7 @@ public class Giocatore {
     }
 
     /**
-     *
+     *Metodo utilizzato per il set di "soldi".
      * @param soldi
      */
     public void setSoldi(int soldi) {
@@ -58,7 +58,7 @@ public class Giocatore {
     }
 
     /**
-     *
+     *Metodo utilizzato per aggiungere un determinato valore alla variabile "soldi".
      * @param soldi
      */
     public void aggiungiSoldi(int soldi) {

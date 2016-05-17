@@ -10,7 +10,7 @@ import utilities.*;
 import static finestre.Finestra.*;
 
 /**
- *
+ * prova modifica
  * @author User
  */
 public class Mob extends Rectangle{ //la classe Mob estende la classe Rectangle ereditando metodi e attributi

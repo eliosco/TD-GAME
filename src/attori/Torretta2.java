@@ -18,7 +18,7 @@ import pannelli.Pannello;
 public class Torretta2 extends Torretta {
  
     /**
-     *
+     *Costruttore della classe Torretta2.
      * @param danno
      * @param x
      * @param y
@@ -260,9 +260,9 @@ public class Torretta2 extends Torretta {
           if(bersaglio.getTempoRallentato()<=0){
               bersaglio.setRallentato(true);
           bersaglio.setDebuffVelocità(attacco);
-      bersaglio.setVelocità(bersaglio.getVelocità()+ attacco);
+      bersaglio.setVelocità(bersaglio.getVelocità()+ attacco);// scala la velocità di bersaglio pari alla quantità di attacco di torretta.
         }
-          bersaglio.setTempoRallentato(bersaglio.getTempoRallentato()+2000);
+          bersaglio.setTempoRallentato(bersaglio.getTempoRallentato()+2000);// definisce la durata del rallentamento.
     }
 
     /**
@@ -270,7 +270,7 @@ public class Torretta2 extends Torretta {
      */
     @Override
     public void upgrade() {
-        System.out.println("mannaggiasanda");
+        
 
         livelloTorretta = 1;
         attacco += 5;

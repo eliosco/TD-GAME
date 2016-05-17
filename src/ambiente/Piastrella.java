@@ -10,7 +10,7 @@ import java.awt.*;
 import utilities.Valore;
 
 /**
- *
+ * questa classe estende la classe Rectangle di Java ereditando tutti i metodi e attributi
  * @author User
  */
 public class Piastrella extends Rectangle {
@@ -18,7 +18,7 @@ public class Piastrella extends Rectangle {
     private int terrenoId, ariaId;
 
     /**
-     *
+     * Costruttore della classe che prende in ingresso tutti i paramentri per dimensionare un oggetto di questa classe identificandolo anche con un id 
      * @param x
      * @param y
      * @param larghezza
@@ -34,7 +34,7 @@ public class Piastrella extends Rectangle {
 
     /**
      *
-     * @return
+     * @return id del terreno
      */
     public int getTerrenoId() {
         return terrenoId;
@@ -50,7 +50,7 @@ public class Piastrella extends Rectangle {
 
     /**
      *
-     * @return
+     * @return id dell'aria
      */
     public int getAriaId() {
         return ariaId;
@@ -65,7 +65,7 @@ public class Piastrella extends Rectangle {
     }
 
     /**
-     *
+     * il metodo disegna consente prendendo una componente di tipo Graphics di disegnare l'immagine della piastrella prendendola dal pannello in base al'id della piastrella 
      * @param g
      */
     public void disegna(Graphics g) {

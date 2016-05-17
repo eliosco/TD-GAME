@@ -10,7 +10,7 @@ import java.util.Scanner;
 import utilities.Posizione;
 
 /**
- *
+ * questa classe definisce una matrice di interi che servirà per rappresentare un percorso e la posizione di partenza di questo percorso
  * @author User
  */
 public class Mappa {
@@ -20,7 +20,7 @@ public class Mappa {
 
     /**
      *
-     * @return
+     * @return partenza
      */
     public Posizione getPartenza() {
         return partenza;
@@ -28,14 +28,14 @@ public class Mappa {
 
     /**
      *
-     * @return
+     * @return matricePercorso
      */
     public int[][] getMatricePercorso() {
         return matricePercorso;
     }
     
     /**
-     *
+     * costruttore della classe che costruisce la matrice con le dimensione date come parametri di ingresso
      * @param larghezza
      * @param altezza
      */
@@ -45,7 +45,8 @@ public class Mappa {
     }
     
     /**
-     *
+     * questo metodo prende come parametro di ingresso un oggetto di tipo File, crea un oggetto di tipo Scanner che scansiona il file passato come parametro e assegna i valori del file rilevati agli elementi della matrice percorso uno alla volta, se un valore rilevato è uguale a 2 crea una posizione di partenza;
+     * in questo metodo vengono gestite le eccezioni nel caso di mancato funzionamento di qualche operazione stampando in output sulla console una stringa
      * @param cPercorso
      */
     public void percorso(File cPercorso){

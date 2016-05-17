@@ -18,7 +18,7 @@ import pannelli.Pannello;
 public class Torretta1 extends Torretta {
 
     /**
-     *
+     *Metodo costruttore della classe Torretta1.
      * @param danno
      * @param x
      * @param y

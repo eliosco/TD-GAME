@@ -1,3 +1,17 @@
 setxPlace e setyPlace in posizione vengono mai utilizzati? ho visto che i set di xPlace e yPlace si settano anche su setX e setY
 
 Salvato non ha un costruttore. Va bene?
+
+
+
+ONDATA:
+il final sulla classe va tenuto?
+
+PROIETTILI: 
+la variabile velocià è inutile? perche ci sono altre variabili.
+il set x e y? superflui
+il metodo morte()? viene utilizzato?
+
+TORRETTA: 
+id torretta inutile?
+credo ci siano molti set inutili.

@@ -5,24 +5,18 @@
  */
 package ascoltatori;
 
-import finestre.FinestraIniziale;
-import finestre.Finestra;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import static finestre.Finestra.s;
+import finestre.*;
+import java.awt.event.*;
+import javax.swing.*;
+import static finestre.Finestra.*;
 import java.io.IOException;
 import utilities.ConnessioneDB;
 
-import static utilities.TDGAME.connessione;
-
-import static utilities.TDGAME.finestra;
-import static utilities.TDGAME.finestraIn;
+import static utilities.TDGAME.*;
 
 /**
- *
- * @author Luca
+ * classe che implementa l'interfaccia  ActionListener  che consente di far ricevere eventi azione alla classe
+ * @author User
  */
 public class AscoltatoreDiEventiGameOver implements ActionListener {
 
@@ -30,7 +24,7 @@ public class AscoltatoreDiEventiGameOver implements ActionListener {
     private String stringBot;
 
     /**
-     *
+     *costruttore che prende come parametro un JButton e lo assegna alla variabile b della classe per poi estrapolarne il testo che lo raffigura
      * @param button
      */
     public AscoltatoreDiEventiGameOver(JButton button) {
@@ -38,7 +32,7 @@ public class AscoltatoreDiEventiGameOver implements ActionListener {
         b = button;
         stringBot = b.getText();
     }
-
+// in base alla stringa estrapolata dal bottone l'ascoltatore attiverà un evento che in questo determinerà la chiusura o il restart dell'app, nel caso in cui si decide di finire la partita apparirà un pop up dove bisognerà scrivere il proprio nome che verrà aggiunto in seguito al database che contiene la classifica
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (stringBot) {

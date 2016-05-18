@@ -11,7 +11,7 @@ import static finestre.Finestra.panel;
 import static utilities.Valore.terrenoErba;
 
 /**
- *
+ * questa classe racchiude la categoria di oggetti che sono formati da una griglia o matrice di piastrelle
  * @author User
  */
 public final class Griglia {

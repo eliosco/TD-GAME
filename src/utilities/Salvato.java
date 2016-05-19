@@ -22,21 +22,20 @@ public class Salvato {
      * @param griglia che rappresenterà la mappa.
      */
     public void caricaSalvato(File caricaPercorso, Griglia griglia) {
+        int temp;
         
         try (Scanner caricaScanner = new Scanner(caricaPercorso) // caricaPercorso viene considerato pubblico
                 ) {
             while (caricaScanner.hasNext()) {
                 for (Piastrella[] piastrella : griglia.getPiastrella()) {
                     for (int j = 0; j < griglia.getPiastrella()[0].length; j++) {
-                        piastrella[j].setTerrenoId(caricaScanner.nextInt());
+                        temp=caricaScanner.nextInt();
+                        piastrella[j].setTerrenoId(temp);
+                        piastrella[j].setAriaId(temp);
                     }
                 }
 
-                for (Piastrella[] piastrella : griglia.getPiastrella()) {
-                    for (int j = 0; j < griglia.getPiastrella()[0].length; j++) {
-                        piastrella[j].setAriaId(caricaScanner.nextInt());
-                    }
-                }
+                
             }
         } catch (Exception e) {
         }

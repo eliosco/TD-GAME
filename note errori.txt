@@ -7,11 +7,8 @@ Salvato non ha un costruttore. Va bene?
 ONDATA:
 il final sulla classe va tenuto?
 
-PROIETTILI: 
-la variabile velocià è inutile? perche ci sono altre variabili.
-il set x e y? superflui
-il metodo morte()? viene utilizzato?
+
 
 TORRETTA: 
-id torretta inutile?
+
 credo ci siano molti set inutili.

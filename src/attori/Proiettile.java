@@ -15,8 +15,7 @@ import java.awt.*;
 public class Proiettile extends Rectangle {
 
     private boolean colpito, sparato;// Booleani necessari per alcuni controlli determinano se il proiettile ha colpito il mob e se il proiettile è stato sparato.
-    private double velocita;// determina la velocita di spostamento del proiettile.
-    private int velocitaproiettile, velocitaframe, attacco;
+    private int velocitaproiettile, velocitaframe, attacco; // determinano respettivamente la velocità di spostamento del proiettile, il tempo di delay dello spawn e il valore del danno che apporta al mob.
     private Mob bersaglio;// determina il mob verso cui il proiettile si deve muovere.
     private Torretta tor;// indica la torretta dalla quale il proiettile viene generato.
 
@@ -44,38 +43,7 @@ public class Proiettile extends Rectangle {
         this.sparato = sparato;
     }
 
-    /**
-     *Metodo che restituisce il valore della variabile "velocita".
-     * @return
-     */
-    public double getVelocita() {
-        return velocita;
-    }
-
-    /**
-     *Metodo utilizzato per il set della variabile "velocita".
-     * @param velocita
-     */
-    public void setVelocita(double velocita) {
-        this.velocita = velocita;
-    }
-
-    /**
-     *Metodo utilizzato per il set della variabile "x".
-     * @param x
-     */
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    /**
-     *Metodo utilizzato per il set della variabile "y".
-     * @param y
-     */
-    public void setY(int y) {
-        this.y = y;
-    }
-
+    
     /**
      *Metodo costruttore della classe Proiettile
      * @param bersaglio
@@ -184,13 +152,5 @@ public class Proiettile extends Rectangle {
 
     }
     
-    /**
-     *Metodo utilizzato 
-     */
-    public void morte() {
-        if (bersaglio.getSalute() == 0) {
-            bersaglio.setIngioco(false);
-            bersaglio.setMorto(true);
-        }
-    }
+
 }

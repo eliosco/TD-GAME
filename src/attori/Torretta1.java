@@ -55,22 +55,7 @@ public class Torretta1 extends Torretta {
         this.tipo = tipo;
     }
     
-    /**
-     *
-     * @return
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     *
-     * @param id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
+   
     /**
      *
      * @return
@@ -255,7 +240,7 @@ public class Torretta1 extends Torretta {
      */
     @Override
     public void upgrade() {
-        System.out.println("mannaggiasanda");
+      
         costoUpgrade=costoAcquisto+5;
         livelloTorretta = 1;
         attacco += 5;

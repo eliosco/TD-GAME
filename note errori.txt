@@ -10,3 +10,7 @@ il final sulla classe va tenuto?
 TORRETTA: 
 
 credo ci siano molti set inutili.
+
+Panel:
+varibili pubbliche per le immagini.
+

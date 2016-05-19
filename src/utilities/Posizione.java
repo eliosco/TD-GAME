@@ -28,22 +28,6 @@ public class Posizione {
     }
 
     /**
-     * Set della variabile xPlace.
-     * @param xPlace
-     */
-    public void setXPlace(int xPlace) {
-        this.xPlace = xPlace;
-    }
-
-    /**
-     * Set della variabile yPlace.
-     * @param yPlace
-     */
-    public void setYPlace(int yPlace) {
-        this.yPlace = yPlace;
-    }
-
-    /**
      * 
      * @return
      */

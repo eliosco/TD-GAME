@@ -14,7 +14,7 @@ import static finestre.Finestra.*;
 import static utilities.TDGAME.finestra;
 
 /**
- *
+ *classe che contiente la maggior parte delle caratteristiche della nostra applicazione
  * @author User
  */
 @SuppressWarnings("serial")
@@ -27,32 +27,32 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     public Thread thread; // definiamo una variabile di istanza che contenga il thread dell'applicazione
 
     /**
-     *
+     *vettore di immagini che contiene il terreno
      */
     public static Image[] Tipo_terreno;
 
     /**
-     *
+     * vettore di immagini che contiene l'aria
      */
     public static Image[] Tipo_aria;
 
     /**
-     *
+     * vettore di immagini che contiene l'acqua
      */
     public static Image[] Tipo_acqua ;
 
     /**
-     *
+     *immagine del mob
      */
     public static Image Tipo_mob;
 
     /**
-     *
+     *immagine della torretta1
      */
     public static Image Tipo_torr1; 
 
     /**
-     *
+     *immagine della torretta2
      */
     public static Image Tipo_torr2 ;
     private volatile boolean running;
@@ -61,12 +61,13 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     private boolean primoControl = true;
     private int a, idmob;
     private PopUpGameOver fine;
-    public int myWidth,
-
-    /**
-     *
+     /**
+     *forse non servono
      */
-    myHeight;
+    public int myWidth,myHeight;
+
+   
+    
     private boolean ready;
 
     private Griglia griglia;
@@ -103,8 +104,8 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     private int tempospawn, finestraspawn, tempobarra, finestrabarra;
 
     /**
-     *
-     * @param finestra
+     *costruttore della classe che crea le icone del gioco e fa partire il thread
+     * @param finestra principale di gioco
      */
     public Pannello(Finestra finestra) {
         thread = new Thread(this);// definiamo una variabile di istanza che contenga il thread dell'applicazione
@@ -143,7 +144,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     
     /**
      *
-     * @return
+     * @return massimo dei mob
      */
     public int getMobMax() {
         return mobMax;
@@ -159,7 +160,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     
     /**
      *
-     * @return
+     * @return i mob uccisi
      */
     public int getMobUccisi() {
         return mobUccisi;
@@ -175,7 +176,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     
     /**
      *
-     * @return
+     * @return un flag che mi serve per capire se il thead si sta eseguendo
      */
     public boolean isRunning() {
         return running;
@@ -191,7 +192,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
 
     /**
      *
-     * @return
+     * @return un vettore di torrette
      */
     public Torretta[] getTortipo() {
         return tortipo;
@@ -207,7 +208,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
 
     /**
      *
-     * @return
+     * @return un lista di proiettili
      */
     public ArrayList<Proiettile> getProiettili() {
         return proiettili;
@@ -223,7 +224,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     
     /**
      *
-     * @return
+     * @return un vettore di interi che tiene il conto delle torrentte
      */
     public int[] getContTorr() {
         return contTorr;
@@ -231,7 +232,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
 
     /**
      *
-     * @return
+     * @return una lista di torrette
      */
     public ArrayList<Torretta> getTorrette() {
         return torrette;
@@ -263,7 +264,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
 
     /**
      *
-     * @return
+     * @return drag
      */
     public int getDrag() {
         return drag;
@@ -279,7 +280,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
 
     /**
      *
-     * @return
+     * @return una lista di ondate
      */
     public ArrayList<Ondata> getOnd() {
         return ond;
@@ -287,7 +288,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
 
     /**
      *
-     * @return
+     * @return una griglia di valori
      */
     public Griglia getGriglia() {
         return griglia;
@@ -302,7 +303,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     }
 
     /**
-     *
+     * questo metodo aggiunge gli ascoltatori al pannello, crea una griglia,le mappe e un salvato; dopodichè carica le immagini delle risorse
      */
     public void definisci() {
         addMouseListener(ricevitoreTor);
@@ -316,14 +317,12 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
         save = new Salvato();
         for (int i = 0; i < Tipo_terreno.length; i++) {
             Tipo_terreno[i] = new ImageIcon("risorse/tipo_terreno.png").getImage();//ImageIcon è un'implementazione dell'interfaccia icona che dipinge le icone dalle immagini prese da un array di url o nome del file precaricate tramite Media Traker per monitorare lo stato caricato dell'immagine. getImage restituisce l'immagine che ottiene i dati dei pixel dal file specificato , il cui formato può essere sia GIF, JPEG o PNG .
-            Tipo_terreno[i] = createImage(new FilteredImageSource(Tipo_terreno[i].getSource(), new CropImageFilter(0, 20 * i, 20, 20)));
+            Tipo_terreno[i] = createImage(new FilteredImageSource(Tipo_terreno[i].getSource(), new CropImageFilter(0, 20 * i, 20, 20))); //la classe FilteredImageSource è un'implementazione dell'interfaccia ImageProducer(interfaccia di oggetti che possono produrre dati di immagine per l'immagine. Ogni immagine contiene un ImageProducer che viene utilizzato per ricostruire l'immagine ogni volta che è necessario). Essa prende un'immagine esistente e un oggetto filtro e li utilizza per produrre dati di un'immagine nuova filtrata da quella originale.  La classe CropImageFilter estende la classe ImageFilter e serve per estrarre una data regione rettangolare di un'immagine esistente e fornirne una fonte per una nuova immagine che contiene solo la regione estratta. Essa è utilizzata in combinazione con un oggetto FiltereImageSource per produrre versioni ritagliate delle immagini esistenti.
+
         }
         for (int i = 0; i < Tipo_aria.length; i++) {
-            Tipo_aria[i] = new ImageIcon("risorse/tipo_aria.png").getImage();
-
-            Tipo_aria[i] = createImage(new FilteredImageSource(Tipo_aria[i].getSource(), new CropImageFilter(0, 20 * i, 20, 20)));  //la classe FilteredImageSource è un'implementazione dell'interfaccia ImageProducer(interfaccia di oggetti che possono produrre dati di immagine per l'immagine. Ogni immagine contiene un ImageProducer che viene utilizzato per ricostruire l'immagine ogni volta che è necessario). Essa prende un'immagine esistente e un oggetto filtro e li utilizza per produrre dati di un'immagine nuova filtrata da quella originale.  La classe CropImageFilter estende la classe ImageFilter e serve per estrarre una data regione rettangolare di un'immagine esistente e fornirne una fonte per una nuova immagine che contiene solo la regione estratta. Essa è utilizzata in combinazione con un oggetto FiltereImageSource per produrre versioni ritagliate delle immagini esistenti.
-
             Tipo_aria[i] = new ImageIcon("risorse/Acqua.png").getImage();
+
         }
 
         save.caricaSalvato(new File("salvato/missione1_cavalli.txt"), griglia);

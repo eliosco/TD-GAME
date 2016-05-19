@@ -57,21 +57,7 @@ public class Torretta2 extends Torretta {
         this.tipo = tipo;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     *
-     * @param id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
+    
 
     /**
      *

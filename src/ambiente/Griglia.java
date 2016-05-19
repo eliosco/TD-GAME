@@ -125,7 +125,7 @@ public final class Griglia {
      */
     public boolean giustaposizione(int x, int y){
         for (Torretta tor: panel.getTorrette())
-        {System.out.println(x+" "+ tor.getX());
+        {
         
             if (x>tor.getX() && x < tor.getX()+40 && y-40> tor.getY() && y-40 < tor.getY()+40)
             {

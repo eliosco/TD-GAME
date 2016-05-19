@@ -303,7 +303,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     }
 
     /**
-     * questo metodo aggiunge gli ascoltatori al pannello, crea una griglia,le mappe e un salvato; dopodichè carica le immagini delle risorse
+     * questo metodo aggiunge gli ascoltatori al pannello, crea una griglia,le mappe e un salvato; dopodichè carica le immagini delle risorse e carica il file salvato; assegna i percorsi alle mappe e aggiunge le ondate dopodichè crea le torrette,i proiettili.
      */
     public void definisci() {
         addMouseListener(ricevitoreTor);
@@ -347,7 +347,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
 
     /**
      *
-     * @return
+     * @return tempo della barra
      */
     public int getTempobarra() {
         return tempobarra;
@@ -367,13 +367,13 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
         if (primoControl) {
             myWidth = getWidth();
             myHeight = getHeight();
-            definisci();
+            definisci(); // chiamata al metodo definisci
             primoControl = false;
         }
 
         g.clearRect(0, 0, getWidth(), getHeight());
         griglia.disegna(g);
-
+// disegnamo gli avversari
         for (int i = a; i < ond.size(); i++) {
             for (Mob mob : ond.get(i).getMobs()) {
                 if (mob.isIngioco()) {
@@ -384,11 +384,11 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
         }
 
        
-
+//disegno la torretta in drag
         if (drag != -1) {
             tortipo[drag].disegna(g);
         } 
-        
+        //disegnamo le torrette e i rispettivi proiettili 
         torrette.stream().map((tor) -> {
             tor.disegna(g);
             return tor;
@@ -403,10 +403,9 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
         });
     }
 
-    //il metodo che segue si occupa dello spawn dei mob verificando prima che essi non siano in gioco definendo anche un ritardo(delay) di spawn tra loro grazie al conteggio dei frame
-
+   
     /**
-     *
+     * questo metodo si occupa del progresso della barra che si occupa dello spawn dei mob
      */
     public void progressoBarra() {
         if (finestrabarra >= tempobarra) {
@@ -451,7 +450,7 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
     }
 
     /**
-     *
+     *questo metodo permette lo spawn degli avversari rispettando le condizioni e il deelay (ritardo) di spawn
      */
     public void evocatore() {
         if (finestraspawn >= tempospawn) {
@@ -489,12 +488,12 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
                     progressoBarra();
                 }
                
-                try{if (ond.get(contond).getMobs()[max -1].isIngioco() && contond < 6 ) {
+                try{if (ond.get(contond).getMobs()[max -1].isIngioco() && contond < 6 ) { // se le ondate sono terminate il tasto ready sparisce
                     iPanel.getReady().setVisible(true);
                     
                      
                 }}catch(Exception di){System.out.println("..." + di);}
-
+   //per tutte le ondate vengono gestiti i movimenti dei mob e il rilevamento degli stessi da parte delle torri di difesa
                 for (int i = a; i < ond.size(); i++) {
                     
                     
@@ -529,21 +528,21 @@ public class Pannello extends JPanel implements Runnable // implements Runnable 
                 }
                     
 
-                
+                //viene calcolata la direzione dei proiettili delle torri
 try{                torrette.stream().forEach((tor) -> {
                     tor.getProiettili().stream().filter((p) -> (p.isSparato())).forEach((p) -> {
                         p.calcolaDirezione();
                     });
                 });}catch (Exception ecc){System.out.println("crash proiettili"+ecc);}
                 
-
+//condizione di sconfitta
                 if (giocatore.getVita() <= 0) {
                     finestra.getTimer().stop();
                     fine.HaiPerso();
                     running=false;
 
                 }
-
+//condizione di vittoria
                 if (mobUccisi == mobMax && contond >= 6) {
                     finestra.getTimer().stop();
 

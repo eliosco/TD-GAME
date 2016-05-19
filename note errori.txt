@@ -14,3 +14,5 @@ credo ci siano molti set inutili.
 Panel:
 varibili pubbliche per le immagini.
 
+variabili da spostare sulla classe valore.
+

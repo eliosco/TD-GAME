@@ -1,5 +1,3 @@
-setxPlace e setyPlace in posizione vengono mai utilizzati? ho visto che i set di xPlace e yPlace si settano anche su setX e setY
-
 Salvato non ha un costruttore. Va bene?
 
 

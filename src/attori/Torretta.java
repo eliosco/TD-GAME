@@ -15,10 +15,10 @@ import java.util.ArrayList;
  */
 public abstract class Torretta extends Rectangle {
 
-    protected int id,
+    protected int 
 
     /**
-     *la variabile "id" determina l'id della torretta.
+     *
      * La variabile "attacco" determina il danno della torretta.
      * La variabile "costoAquisto" determina il costo della torretta per l'aquisto.
      */

@@ -40,7 +40,7 @@ public class AscoltatoreDiEventiSuperiore implements MouseListener, MouseMotionL
     public void mouseReleased(MouseEvent e) {
         try {
 
-            System.out.println("ci sono");
+         
             if (giocatore.getSoldi() >= panel.getTortipo()[panel.getDrag()].getCostoAcquisto()
                     && panel.getGriglia().giustaposizione(e.getX(), e.getY() )
                     && panel.getDrag() != -1) {

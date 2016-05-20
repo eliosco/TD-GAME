@@ -19,20 +19,20 @@ public class TDGAME {
 /* dichiarazioni delle variabili pubbliche principali */
 
     /**
-     *  Dichiarazione Oggetto di tipo finestra.
+     *  Dichiarazione variabile di tipo finestra.
      *  Finestra dove sarà gestito il cuore dell'applicazione
      */
 
     public static Finestra finestra; 
 
     /**
-     * Dichiarazione oggetto di tipo FinestraIniziale.
+     * Dichiarazione variabile di tipo FinestraIniziale.
      * Finestra che apparirà all'inizio dell'applicazione
      */
     public static FinestraIniziale finestraIn;
 
     /**
-     * Dichiarazione oggetto di tipo ConnessioneDB.
+     * Dichiarazione variabile di tipo ConnessioneDB.
      * Oggetto che permette e gestisce la connessione al database.
      */
     public static ConnessioneDB connessione;

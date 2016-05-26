@@ -29,9 +29,13 @@ public class Salvato {
             while (caricaScanner.hasNext()) {
                 for (Piastrella[] piastrella : griglia.getPiastrella()) {
                     for (int j = 0; j < griglia.getPiastrella()[0].length; j++) {
-                        temp=caricaScanner.nextInt();
-                        piastrella[j].setTerrenoId(temp);
-                        piastrella[j].setAriaId(temp);
+                        piastrella[j].setTerrenoId(caricaScanner.nextInt());
+                    }
+                }
+                
+                for (Piastrella[] piastrella : griglia.getPiastrella()) {
+                    for (int j = 0; j < griglia.getPiastrella()[0].length; j++) {
+                        piastrella[j].setAriaId(caricaScanner.nextInt());
                     }
                 }
 
